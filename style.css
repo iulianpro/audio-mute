@@ -1,0 +1,25 @@
+audio {
+    display: none;
+}
+
+p i {
+    font-size: 50px;
+}
+
+.position {
+    position: absolute;
+    left: 93vw;
+    bottom: 20px;
+}
+
+.red {
+    color: red;
+}
+
+.yellow {
+    color: orange;
+}
+
+.green {
+    color: green;
+}

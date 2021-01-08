@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Audio Muted Script</title>
+</head>
+
+<body>
+
+    <audio id="audio-file" controls="false" loop autoplay>
+        <source src="sample-audio.mp3" type="audio/mpeg">
+    </audio>
+
+    <p class="position"><i id="loudspeaker" onclick="muteSound()" class="fas fa-volume-mute green"></i></p>
+
+    <script>
+        let audio = document.getElementById('audio-file');
+
+        window.onload = function () {
+            audio.volume = 0;
+            document.addEventListener('click', musicPlay);
+            function musicPlay() {
+                audio.play();
+                document.removeEventListener('click', musicPlay);
+            }
+        }
+
+        function muteSound() {
+            if (audio.volume == 0) {
+                audio.volume = 1;
+                document.getElementById('loudspeaker').classList.remove("green", "fas", "fa-volume-mute");
+                document.getElementById('loudspeaker').classList.add("red", "fas", "fa-volume-up");
+            } else if (audio.volume == 1) {
+                audio.volume = 0.3;
+                document.getElementById('loudspeaker').classList.remove("red", "fas", "fa-volume-up");
+                document.getElementById('loudspeaker').classList.add("yellow", "fas", "fa-volume-down");
+            } else {
+                audio.volume = 0;
+                document.getElementById('loudspeaker').classList.remove("yellow", "fas", "fa-volume-down");
+                document.getElementById('loudspeaker').classList.add("green", "fas", "fa-volume-mute");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
